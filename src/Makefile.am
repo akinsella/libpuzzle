@@ -3,6 +3,9 @@ lib_LTLIBRARIES = \
 
 libpuzzle_la_LDFLAGS = -version-info 1:0
 
+libpuzzle_la_LIBADD = \
+	-L/opt/homebrew/Cellar/gd/2.3.3_1/lib -lgd
+
 libpuzzle_la_SOURCES = \
 	puzzle.c \
 	tunables.c \
@@ -24,14 +27,23 @@ noinst_HEADERS = \
 	globals.h
 
 bin_PROGRAMS = \
-	puzzle-diff
+	puzzle-diff \
+	puzzle-hash
         
 puzzle_diff_SOURCES = \
 	puzzle-diff.c \
 	puzzle_common.h \
 	puzzle.h
+        
+puzzle_hash_SOURCES = \
+	puzzle-hash.c \
+	puzzle_common.h \
+	puzzle.h
 
 puzzle_diff_LDADD = \
+	libpuzzle.la
+
+puzzle_hash_LDADD = \
 	libpuzzle.la
 
 TESTS = \
