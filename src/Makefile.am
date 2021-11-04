@@ -28,22 +28,22 @@ noinst_HEADERS = \
 
 bin_PROGRAMS = \
 	puzzle-diff \
-	puzzle-hash
+	puzzle-sign
         
 puzzle_diff_SOURCES = \
 	puzzle-diff.c \
 	puzzle_common.h \
 	puzzle.h
         
-puzzle_hash_SOURCES = \
-	puzzle-hash.c \
+puzzle_sign_SOURCES = \
+	puzzle-sign.c \
 	puzzle_common.h \
 	puzzle.h
 
 puzzle_diff_LDADD = \
 	libpuzzle.la
 
-puzzle_hash_LDADD = \
+puzzle_sign_LDADD = \
 	libpuzzle.la
 
 TESTS = \
