@@ -145,10 +145,16 @@ int puzzle_dump_cvec(PuzzleContext * const context,
     if (s <= (size_t) 0U) {
         puzzle_err_bug(__FILE__, __LINE__);
     }
+    printf("Signature(%i) -> [", cvec->sizeof_vec);
     do {
-        printf("%d\n", *vecptr++);
-    } while (--s != (size_t) 0U);
-    
+        printf("%d", *vecptr++);
+        if (s > (size_t) 1U) {
+            printf(", ");
+        } else {
+            printf("]\n");
+        }
+    } while (--s != (size_t) 0U);  
+
     return 0;
 }
 

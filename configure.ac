@@ -17,14 +17,14 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PATH_PROG(GDLIBCONFIG, [gdlib-config])
 CPPFLAGS="$CPPFLAGS -D_GNU_SOURCE=1" 
-CPPFLAGS="$CPPFLAGS `$GDLIBCONFIG --cflags`"
-LDFLAGS="$LDFLAGS `$GDLIBCONFIG --ldflags`"
-LDADD="$LDADD `$GDLIBCONFIG --libs`"
+CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/gd/2.3.3_1/include"
+LDFLAGS="$LDFLAGS -L/opt/homebrew/Cellar/gd/2.3.3_1/lib"
+LDADD="$LDADD -L/opt/homebrew/Cellar/gd/2.3.3_1/lib -lgd"
 
 # Checks for libraries.
 
-AC_CHECK_LIB([gd], [gdImageCreateFromGd2],,
-             AC_ERROR([libgd2 development files not found]))
+#AC_CHECK_LIB([/opt/homebrew/bin/gd], [gdImageCreateFromGd2],,
+#             AC_ERROR([libgd2 development files not found]))
 
 # Checks for header files.
 AC_HEADER_STDC

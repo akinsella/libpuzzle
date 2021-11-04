@@ -93,15 +93,13 @@ int main(int argc, char *argv[])
     parse_opts(&opts, &context, argc, argv);
     puzzle_init_cvec(&context, &cvec1);
     if (puzzle_fill_cvec_from_file(&context, &cvec1, opts.file1) != 0) {    
-        fprintf(stderr, "Unable to read [%s]\n", opts.file1);
+        //fprintf(stderr, "Unable to read [%s]\n", opts.file1);
         return 1;
     }
-    d = puzzle_vector_euclidean_length(&context, &cvec1);
+
+    puzzle_dump_cvec(&context, &cvec1);
+
     puzzle_free_cvec(&context, &cvec1);
     puzzle_free_context(&context);
-    if (opts.exit == 0) {
-        printf("Euclidian length: %g\n", d);
-        return 0;
-    }
     return 10;
 }
